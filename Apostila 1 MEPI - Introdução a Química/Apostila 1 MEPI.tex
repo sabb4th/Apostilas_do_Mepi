@@ -1,0 +1,586 @@
+% LISTA DE EXERCÍCIOS Template using "book"
+% Created by Milena Lima 
+%Email:milenascimentolima@gmail.com
+% Science Project at school 2017-FAPEAM
+% View: https://www.overleaf.com/read/syjxcffdygch
+%=======================================================
+%------------LISTA DE EXERCÍCIOS
+%=======================================================
+\documentclass[12pt,a4paper,oneside,openany]{book} 
+%=======================================================
+%-------------PACOTES 
+%=======================================================
+\usepackage[top=1cm,left=1cm,right=1.5cm,bottom=2cm]{geometry}
+\usepackage[T1]{fontenc}%Especif. a codif. de caracteres
+\usepackage{ae}%Auxílio para fontes e pdf
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}%Gerar Texto Aleatório
+\usepackage[brazil]{babel}%Traduzir para Português
+\usepackage{indentfirst}%Faz indentações em parágrafos
+\usepackage{graphicx}%Permite incluir figuras
+\usepackage{subfig} %para criar sub figuras
+\usepackage{float}% figuras
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage[dvipsnames]{xcolor}%Admitir cores
+\usepackage{amsmath,amssymb,amsthm}%Incluir expressões  matemáticas, equações, teoremas, símbolos, etc
+\usepackage{lastpage}%Incluir Ficha catalográfica
+\usepackage{epigraph}%Incluir Epígrafo
+\usepackage{enumerate}
+\usepackage{enumitem}
+\newlist{questions}{enumerate}{3}
+\setlist[questions]{label=\arabic*.}
+\newcommand{\question}{\item}
+\setlist[enumerate,1]{% (
+leftmargin=*, itemsep=12pt, label={\textbf{\arabic*.)}}}
+%---
+\newlist{partes}{enumerate}{3}
+\setlist[partes]{label=(\alph*)}
+\newcommand{\parte}{\item}
+%---
+\newlist{subpartes}{enumerate}{3}
+\setlist[subpartes]{label=\roman*)}
+\newcommand{\subparte}{\item}
+%---
+\usepackage{array}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\usepackage[sort&compress,round,comma,authoryear]{natbib}
+\usepackage{makeidx}
+\usepackage[colorlinks=true,urlcolor=magenta,citecolor=red,linkcolor=violet,bookmarks=true]{hyperref}
+\usepackage{lscape}%Altera a orientação de uma página
+\usepackage{pdflscape}
+\usepackage{epstopdf} %converte figs eps em figs pdf
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+\usepackage[many]{tcolorbox}
+\usepackage{empheq}
+\usepackage{tasks}%lista alfabética
+\pagestyle{plain}
+%================================================================
+%------------DIGITE AQUI
+%===============================================================
+\newcommand{\orgao}{Universidade do Estado do Pará}
+\newcommand{\instituto}{Movimento de Educação Popular e Inclusiva do Jurunas}
+\newcommand{\departamento}{EEFM Arthur Porto}
+\newcommand{\curso}{Ciências da Computação}
+\newcommand{\professor}{Elias Sabát}
+\newcommand{\disciplina}{Química}
+\newcommand{\titulo}{1ª Lista de Exercícios: Introdução a Química}
+\newcommand{\data}{\today}
+\newcommand{\aluno}{ALUNO:}
+\newcommand{\email}{{\bf Professor: Isaias Tobelem}}
+\newcommand{\turma}{kkkkkkkkkkkkkkkkkkkkkkkkkk}
+%===========================================================
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\z}{\mathbf{z}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\balpha}{\mbox{${ \bm \alpha}$}}
+\newcommand{\bmu}{\mbox{${\bm \mu}$}}
+\newcommand{\bbeta}{\mbox{${\bm \beta}$}}
+\newcommand{\bteta}{\mbox{${\bm \theta}$}}
+\newcommand{\bgama}{\mbox{${\bm \gamma}$}}
+\newcommand{\bxi}{\mbox{${\bm \xl}$}}
+\newcommand{\bvarphi}{\mbox{${ \bm \varphi}$}}
+\newcommand{\SZ}{\mbox{ $Z$}}
+\newcommand{\muz}{\mu_{z,l}}
+\newcommand{\muo}{\mu_{0,l}}
+\newcommand{\etao}{\eta_{0,l}}
+\newcommand{\etaz}{\eta_{z,l}}
+\newcommand{\xbeta}{x_{l}\bgama}
+\newcommand{\mui}{\mu_{l}}
+\newcommand{\zetaind}{\zeta \mathtt{I}_{\{s_{l} \in Z \}}} 
+\newcommand{\spz}{ s_{l} \in z}
+\newcommand{\snpz}{ s_{l} \notin z}
+\newcommand{\sps}{ s_{l} \in S}
+\newcommand{\gphi}{ \Gamma(\phi)}
+\newcommand{\scan}{ \Lambda_{z}}
+\newcommand{\gmuop}{ \Gamma(\muo\phi)}
+\newcommand{\gmuzp}{ \Gamma(\muz \phi)}
+\newcommand{\gumuop}{ \Gamma((1-\muo)\phi)}
+\newcommand{\gumuzp}{ \Gamma((1-\muz)\phi)}
+\newcommand{\dlobeta}{ \frac{\parteial l_{0}(\bgama, \phi, 0) }{\parteial \bgama}}
+\newcommand{\lz}{  l_{z}(\bgama, \phi, \tau)}
+\newcommand{\lo}{  l_{0}(\beta, \phi, 0)}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\dis}{\displaystyle}
+\linespread{1.0}%espaço entre linhas
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      CABEÇALHO                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]
+\centering
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}}
+\begin{tabular}[l]{@{}l@{}}\textbf{\orgao}\\\textbf{\instituto}\\\textbf{\departamento} \end{tabular} & \begin{tabular}[l]{@{}l@{}}\textbf{Professor: \professor}\\ {\email}\\ \textbf{Disciplina: \disciplina}\end{tabular}                                                       
+\end{tabular*}
+\end{table}
+\begin{center}
+\rule[2ex]{\textwidth}{1pt}\\
+{\Large{\titulo}}
+\end{center}
+\rule[2ex]{\textwidth}{1pt}\\
+\begin{questions}[label=\protect\circled{\bfseries\arabic*}]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Questões                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%=========================================================
+
+\textbf{Assuntos:} Substância Pura, Misturas Homogêneas e Heterogêneas, Separação de Misturas, Substâncias Simples e Compostas e Mudanças de Estado Físico
+
+\question Em um laboratório de Química foram preparadas as seguintes misturas:
+
+I. água /gasolina
+
+II. água/sal
+
+III. água/areia
+
+IV. gasolina/sal
+
+V. gasolina/areia
+
+Quais dessas misturas são homogêneas?
+\begin{partes}
+    \parte  Nenhuma. 
+   \parte II e III. 
+   \parte II e IV.
+\parte Somente II. 
+\parte  I e II.
+\end{partes}
+
+\question Misturando, agitando bem e deixando um certo tempo
+em repouso, diga quantas fases surgirão em cada um
+dos sistemas:
+
+\begin{partes}
+    \parte água e álcool
+\parte  água e éter
+\parte água, álcool e acetona
+\parte  água, álcool e mercúrio
+\parte  água, gasolina e areia
+\end{partes}
+
+
+\question Considere as misturas:
+
+I. areia e água
+
+II. sangue
+
+III. água e acetona
+
+IV. iodo dissolvido em álcool etílico
+
+Classificam-se como homogêneas:
+\begin{partes}
+\parte apenas I e II.
+\parte apenas I e III.
+\parte apenas II e IV.
+\parte apenas III e IV. 
+\parte  apenas I, II e III.    
+\end{partes}
+
+\question O naftaleno, comercialmente conhecido como
+naftalina, empregado para evitar baratas em roupas, funde
+em temperaturas superiores a 80 °C. Sabe-se que bolinhas de naftalina, à temperatura ambiente, têm suas
+massas constantemente diminuídas, terminando por desaparecer sem deixar resíduo. Essa observação pode ser
+explicada pelo fenômeno da:
+
+\begin{partes}
+    \parte fusão.
+\parte  sublimação.
+\parte  solidificação.
+\parte  liquefação.
+\parte ebulição.
+\end{partes}
+
+\question Resfriando-se progressivamente água destilada, quando começar a passagem do estado líquido para
+o sólido, a temperatura:
+
+\begin{partes}
+   \parte permanecerá constante, enquanto houver líquido presente.
+\parte permanecerá constante, sendo igual ao ponto de
+condensação da substância.
+\parte diminuirá gradativamente.
+\parte permanecerá constante, mesmo depois de todo líquido desaparecer.
+\parte aumentará gradativamente.
+\end{partes}
+
+\question Em um sistema, bem misturado, constituído de
+areia, sal, açúcar, água e gasolina, o número de fases é:
+
+\begin{partes}
+    \parte 2 
+    \parte 3 
+    \parte 4 
+    \parte 5 
+    \parte 6
+\end{partes}
+
+\question O aquecimento global já apresenta sinais visíveis em alguns pontos do planeta. Numa ilha do Alasca,
+na Aldeia de Shishmaret, por exemplo, as geleiras já demoram mais a congelar, no inverno; descongelam mais
+rápido, na primavera, e há mais icebergs. Desde 1971, a
+temperatura aumentou, em média, 2 °C.
+As mudanças de estados descritas no texto, são, respectivamente:
+
+\begin{partes}
+    \parte solidificação e fusão.
+\parte solidificação e condensação.
+\parte sublimação e solidificação.
+\parte solidificação e ebulição.
+\parte fusão e condensação.
+\end{partes}
+
+
+\parte  Necessitou-se retirar o conteúdo do tanque de combustível de um carro. Para isso, fez-se sucção
+com um pedaço de mangueira introduzido no tanque,
+deixando-se escorrer o líquido para um recipiente colocado no chão. Esse processo é chamado de:
+
+\begin{partes}
+    \parte  decantação 
+   \parte sifonação 
+   \parte destilação
+\parte filtração 
+\parte centrifugação
+\end{partes}
+
+\question Considere uma substância cuja fórmula é $H_{3}PO_{4}$.
+Essa substância é composta por:
+
+\begin{partes}
+    \parte  2 elementos 
+    \parte 8 elementos
+\parte 3 elementos
+\parte 4 elementos
+\end{partes}
+
+\question Qual das alternativas abaixo contém somente
+substâncias simples:
+
+\begin{partes}
+    \parte $H_{2}O$, HCl, CaO 
+    \parte Au, Fe, $O_{2}$
+\parte $H_{2}O$, Au, K 
+ \parte $H_{2}$, $Cl_{2}$, NaK
+\parte $H_{2}O$, $Cl_{2}$, K
+\end{partes}
+
+\question Água mineral engarrafada, propanona
+($C_{3}H_{6}O$) e gás oxigênio são classificados, respectivamente, como:
+
+\begin{partes}
+    \parte substância pura composta, substância pura simples e
+mistura homogênea.
+\parte substância pura composta, mistura homogênea e substância pura simples.
+\parte mistura heterogênea, substância pura simples e substância pura simples.
+\parte mistura homogênea,substância pura composta e substância pura composta.
+\parte mistura homogênea,substância pura composta e substância pura simples.
+\end{partes}
+
+
+\question
+\citep{ ENEM(2009)} O ciclo da água é fundamental para a preservação da vida no planeta. As condições climáticas
+da Terra permitem que a água sofra mudanças
+de fase e a compreensão dessas transformações é fundamental para se entender o ciclo
+hidrológico. Numa dessas mudanças, a água ou
+a umidade da terra absorve o calor do sol e dos
+arredores. Quando já foi absorvido calor suficiente, algumas das moléculas do líquido podem
+ter energia necessária para começar a subir
+para a atmosfera. A transformação mencionada no texto é a:
+\begin{partes}
+\parte fusão.
+\parte liquefação.
+\parte evaporação.
+\parte solidificação.
+\parte condensação.
+\end{partes}
+
+\question
+\citep{ ENEM(2009)} A ciência propõe formas de explicar a natureza
+e seus fenômenos que, muitas vezes, confrontam o conhecimento popular ou o senso comum. Um bom exemplo desse descompasso é
+a explicação microscópica da flutuação do gelo
+na água. Do ponto de vista atômico, podem-se
+representar os três estados físicos dessa substância como nas figuras a seguir, nas quais as
+bolas representam as moléculas de água.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{1.png}
+    
+\end{figure}
+
+Considerando-se as representações das moléculas de água nos três estados físicos e seu
+comportamento anômalo, é correto afirmar que:
+
+\begin{partes}
+    \parte sólidos afundam na água.
+\parte a interação entre as moléculas está restrita
+ao estado sólido.
+\parte a figura B é a que melhor representa a água
+no estado líquido.
+\parte  a figura A é a que melhor representa o gelo,
+ou seja, água no estado sólido.
+\parte aumenta a distância entre as moléculas da
+substância à medida que a temperatura aumenta.
+\end{partes}
+
+
+\question
+\citep{ ENEM(2013)} Entre as substâncias usadas para o
+tratamento de água está o sulfato de alumínio que, em meio
+alcalino, forma partículas em suspensão na água, às quais as
+impurezas presentes no meio aderem.
+O método de separação comumente usado para retirar o
+sulfato de alumínio com as impurezas aderidas é a:
+
+\begin{partes}
+    \parte flotação.
+\parte levigação.
+\parte ventilação.
+\parte peneiração.
+\parte centrifugação.
+\end{partes}
+
+\question 
+\citep{ ENEM(2011)} Belém é cercada por 39 ilhas, e suas
+populações convivem com ameaças de doenças. O motivo,
+apontado por especialistas, é a poluição da água do rio,
+principal fonte de sobrevivência dos ribeirinhos. A diarreia
+é frequente nas crianças e ocorre como consequência da
+falta de saneamento básico, já que a população não tem
+acesso à água de boa qualidade. Como não há água potável,
+a alternativa é consumir a do rio.
+O procedimento adequado para tratar a água dos rios, a fim
+de atenuar os problemas de saúde causados por
+microrganismos a essas populações ribeirinhas é a:
+
+\begin{partes}
+    \parte filtração.
+\parte cloração.
+\parte coagulação.
+\parte fluoretação.
+\parte decantação. 
+\end{partes}
+
+\question
+\citep{ENEM(2010)}
+Em visita a uma usina sucroalcooleira,
+um grupo de alunos pôde observar a série de processos de
+beneficiamento da cana-de-açúcar, entre os quais se
+destacam:
+
+1. A cana chega cortada da lavoura por meio de caminhões
+e é despejada em mesas alimentadoras que a conduzem
+para as moendas. Antes de ser esmagada para a retirada
+do caldo açucarado, toda a cana é transportada por
+esteiras e passada por um eletroímã para a retirada de
+materiais metálicos.
+
+2. Após se esmagar a cana, o bagaço segue para as
+caldeiras, que geram vapor e energia para toda a usina.
+
+3. O caldo primário, resultante do esmagamento, é passado
+por filtros e sofre tratamento para transformar-se em
+açúcar refinado e etanol.
+
+Com base nos destaques da observação dos alunos, quais
+operações físicas de separação de materiais foram
+realizadas nas etapas de beneficiamento da cana-de açúcar? 
+
+\begin{partes}
+    \parte Separação mecânica, extração, decantação.
+\parte Separação magnética, combustão, filtração.
+\parte Separação magnética, extração, filtração.
+\parte Imantação, combustão, peneiração.
+\parte  Imantação, destilação, filtração. 
+\end{partes}
+
+\question
+\citep{ENEM(2025)} No início do século XX, as fórmulas das substâncias eram representadas de modo diferente do atual. A figura apresenta uma
+fotografia bem antiga (1909) que registra uma aula de química ministrada em um colégio em Santos (SP). Um olhar mais atento
+permite identificar como os compostos químicos eram representados.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{2.png}
+\end{figure}
+
+O nitrogênio era chamado de azoto e representado pelo símbolo Az. Vê-se na lousa a equação representativa da adição do
+oxigênio atômico (O) ao monóxido de nitrogênio (AzO) com a formação de dióxido de nitrogênio ($AzO^2$). Analogamente, o nitrato
+de sódio era representado por $NaAzO^3$. 
+
+Em 1909, as representações das substâncias ácido nítrico e cloreto de cálcio, tendo por base essas informações e seguindo a
+mesma lógica, seriam, respectivamente:
+
+\begin{partes}
+    \parte $HAzO^3$ e $CaCl^2$
+\parte $HAz^3O$ e $Ca^2Cl$
+\parte $H^3AzO^4$ e CaCl
+\parte $HAz^3O$ e $KCl^2$
+\parte $HAzO2$ e KCl
+\end{partes}
+
+ \question  \citep{ENEM(2024)} Existe um processo de purificação de água em que são
+removidos os sais dissolvidos. A água que passa por esse processo
+é muito utilizada em laboratórios de química, em indústrias
+(como solvente), em baterias de carros etc. Entretanto, esse
+tipo de água não é adequado para ingestão, pois pode causar
+problemas de saúde, como carência iônica e diarreia.
+
+Essa água é chamada de:
+
+\begin{partes}
+    \parte dura.
+\parte pesada.
+\parte sanitária.
+\parte destilada.
+\parte oxigenada.
+\end{partes}
+
+\question  \citep{ENEM(2024)} O magnésio metálico utilizado em ligas leves é
+produzido em um processo que envolve várias etapas e
+utiliza água do mar como matéria-prima. A primeira etapa
+desse processo consiste na reação entre o íon $Mg^{2+}$ e
+hidróxido de cálcio, $Ca(OH)_{2}$, obtendo uma mistura que
+contém hidróxido de magnésio, pouco solúvel, e íons $Ca^{2+}$,
+de acordo com a equação química:
+
+$$Mg^{2+}_{(aq)} + Ca(OH)_{2(aq)} \longrightarrow  Mg(OH)_{2(s)} + Ca^{2+}_{(aq)}$$
+
+O método adequado para separar o $Mg(OH)_2$ dessa
+mistura é a: 
+
+\begin{partes}
+    \parte filtração.
+\parte catação.
+\parte destilação.
+\parte dissolução.
+\parte evaporação.
+\end{partes}
+
+\question \citep{ENEM(2022)}
+A água bruta coletada de mananciais apresenta
+alto índice de sólidos suspensos, o que a deixa com
+um aspecto turvo. Para se obter uma água límpida e
+potável, ela deve passar por um processo de purificação
+numa estação de tratamento de água. Nesse processo,
+as principais etapas são, nesta ordem: coagulação,
+decantação, filtração, desinfecção e fluoretação.
+
+Qual é a etapa de retirada de grande parte desses
+sólidos?
+
+\begin{partes}
+    \parte Coagulação.
+\parte Decantação.
+\parte Filtração.
+\parte Desinfecção.
+\parte Fluoretação.
+\end{partes}
+
+\question \citep{ENEM(2022)}
+ O urânio é empregado como fonte de energia em
+reatores nucleares. Para tanto, o seu mineral deve
+ser refinado, convertido a hexafluoreto de urânio e
+posteriormente enriquecido, para aumentar de 0,7% a 3%
+a abundância de um isótopo específico — o urânio-235.
+Uma das formas de enriquecimento utiliza a pequena
+diferença de massa entre os hexafluoretos de urânio-235 e
+de urânio-238 para separá-los por efusão, precedida pela
+vaporização. Esses vapores devem efundir repetidamente
+milhares de vezes através de barreiras porosas formadas por
+telas com grande número de pequenos orifícios. No entanto,
+devido à complexidade e à grande quantidade de energia
+envolvida, cientistas e engenheiros continuam a pesquisar
+procedimentos alternativos de enriquecimento.
+
+Considerando a diferença de massa mencionada entre os
+dois isótopos, que tipo de procedimento alternativo ao da
+efusão pode ser empregado para tal finalidade?
+
+\begin{partes}
+    \parte Peneiração.
+\parte Centrifugação.
+\parte Extração por solvente.
+\parte Destilação fracionada.
+\parte Separação magnética.
+\end{partes}
+
+\question \citep{ENEM(2020)} A obtenção de óleos vegetais, de maneira geral, passa pelas etapas descritas no quadro. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{3.png}
+\end{figure}
+
+Qual das subetapas do processo é realizada em função apenas da polaridade das substâncias?
+
+\begin{partes}
+    \parte Trituração.
+\parte Cozimento.
+\parte Prensagem.
+\parte Extração.
+\parte Destilação.
+\end{partes}
+
+%================================================================
+%-------------------FIM DA LISTA
+%================================================================
+\end{questions}
+%===========================================================
+%          BIBLIOGRAFIA
+%===========================================================
+\begin{thebibliography}{99}
+\thispagestyle{empty}%myheadings
+%===========================================================
+%==============Livro
+\bibitem[ENEM(2013)]{ENEM(2013)}
+[1] \textbf{ENEM 2013}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2009)]{ENEM(2009)}
+[2] \textbf{ENEM 2009}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2011)]{ENEM(2011)}
+[3] \textbf{ENEM 2011}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2010)]{ENEM(2010)}
+[4] \textbf{ENEM 2010}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2025)]{ENEM(2025)}
+[5] \textbf{ENEM 2025}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2024)]{ENEM(2024)}
+[6] \textbf{ENEM 2024}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2022)]{ENEM(2022)}
+[7] \textbf{ENEM 2022}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2020)]{ENEM(2020)}
+[7] \textbf{ENEM 2020}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+
+%===========================================================
+\end{thebibliography}
+\end{document}

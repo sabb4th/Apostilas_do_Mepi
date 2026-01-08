@@ -1,0 +1,599 @@
+% LISTA DE EXERCÍCIOS Template using "book"
+% Created by Milena Lima 
+%Email:milenascimentolima@gmail.com
+% Science Project at school 2017-FAPEAM
+% View: https://www.overleaf.com/read/syjxcffdygch
+%=======================================================
+%------------LISTA DE EXERCÍCIOS
+%=======================================================
+\documentclass[12pt,a4paper,oneside,openany]{book} 
+%=======================================================
+%-------------PACOTES 
+%=======================================================
+\usepackage[top=1cm,left=1cm,right=1.5cm,bottom=2cm]{geometry}
+\usepackage[T1]{fontenc}%Especif. a codif. de caracteres
+\usepackage{ae}%Auxílio para fontes e pdf
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}%Gerar Texto Aleatório
+\usepackage[brazil]{babel}%Traduzir para Português
+\usepackage{indentfirst}%Faz indentações em parágrafos
+\usepackage{graphicx}%Permite incluir figuras
+\usepackage{subfig} %para criar sub figuras
+\usepackage{float}% figuras
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage[dvipsnames]{xcolor}%Admitir cores
+\usepackage{amsmath,amssymb,amsthm}%Incluir expressões  matemáticas, equações, teoremas, símbolos, etc
+\usepackage{lastpage}%Incluir Ficha catalográfica
+\usepackage{epigraph}%Incluir Epígrafo
+\usepackage{enumerate}
+\usepackage{enumitem}
+\newlist{questions}{enumerate}{3}
+\setlist[questions]{label=\arabic*.}
+\newcommand{\question}{\item}
+\setlist[enumerate,1]{% (
+leftmargin=*, itemsep=12pt, label={\textbf{\arabic*.)}}}
+%---
+\newlist{partes}{enumerate}{3}
+\setlist[partes]{label=(\alph*)}
+\newcommand{\parte}{\item}
+%---
+\newlist{subpartes}{enumerate}{3}
+\setlist[subpartes]{label=\roman*)}
+\newcommand{\subparte}{\item}
+%---
+\usepackage{array}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\usepackage[sort&compress,round,comma,authoryear]{natbib}
+\usepackage{makeidx}
+\usepackage[colorlinks=true,urlcolor=magenta,citecolor=red,linkcolor=violet,bookmarks=true]{hyperref}
+\usepackage{lscape}%Altera a orientação de uma página
+\usepackage{pdflscape}
+\usepackage{epstopdf} %converte figs eps em figs pdf
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+\usepackage[many]{tcolorbox}
+\usepackage{empheq}
+\usepackage{tasks}%lista alfabética
+\pagestyle{plain}
+\usepackage{mhchem}
+%================================================================
+%------------DIGITE AQUI
+%===============================================================
+\newcommand{\orgao}{Universidade do Estado do Pará}
+\newcommand{\instituto}{Movimento de Educação Popular e Inclusiva do Jurunas}
+\newcommand{\departamento}{EEFM Arthur Porto}
+\newcommand{\curso}{Ciências da Computação}
+\newcommand{\professor}{Elias Sabát}
+\newcommand{\disciplina}{Química}
+\newcommand{\titulo}{4ª Lista de Exercícios: Funções Inorgânicas}
+\newcommand{\data}{\today}
+\newcommand{\aluno}{ALUNO:}
+\newcommand{\email}{{\bf Professor: Isaias Tobelem}}
+\newcommand{\turma}{kkkkkkkkkkkkkkkkkkkkkkkkkk}
+%===========================================================
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\z}{\mathbf{z}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\balpha}{\mbox{${ \bm \alpha}$}}
+\newcommand{\bmu}{\mbox{${\bm \mu}$}}
+\newcommand{\bbeta}{\mbox{${\bm \beta}$}}
+\newcommand{\bteta}{\mbox{${\bm \theta}$}}
+\newcommand{\bgama}{\mbox{${\bm \gamma}$}}
+\newcommand{\bxi}{\mbox{${\bm \xl}$}}
+\newcommand{\bvarphi}{\mbox{${ \bm \varphi}$}}
+\newcommand{\SZ}{\mbox{ $Z$}}
+\newcommand{\muz}{\mu_{z,l}}
+\newcommand{\muo}{\mu_{0,l}}
+\newcommand{\etao}{\eta_{0,l}}
+\newcommand{\etaz}{\eta_{z,l}}
+\newcommand{\xbeta}{x_{l}\bgama}
+\newcommand{\mui}{\mu_{l}}
+\newcommand{\zetaind}{\zeta \mathtt{I}_{\{s_{l} \in Z \}}} 
+\newcommand{\spz}{ s_{l} \in z}
+\newcommand{\snpz}{ s_{l} \notin z}
+\newcommand{\sps}{ s_{l} \in S}
+\newcommand{\gphi}{ \Gamma(\phi)}
+\newcommand{\scan}{ \Lambda_{z}}
+\newcommand{\gmuop}{ \Gamma(\muo\phi)}
+\newcommand{\gmuzp}{ \Gamma(\muz \phi)}
+\newcommand{\dlobeta}{ \frac{\parteial l_{0}(\bgama, \phi, 0) }{\parteial \bgama}}
+\newcommand{\lz}{  l_{z}(\bgama, \phi, \tau)}
+\newcommand{\lo}{  l_{0}(\beta, \phi, 0)}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\dis}{\displaystyle}
+\linespread{1.0}%espaço entre linhas
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      CABEÇALHO                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]
+\centering
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}}
+\begin{tabular}[l]{@{}l@{}}\textbf{\orgao}\\\textbf{\instituto}\\\textbf{\departamento} \end{tabular} & \begin{tabular}[l]{@{}l@{}}\textbf{Professor: \professor}\\ {\email}\\ \textbf{Disciplina: \disciplina}\end{tabular}                                                       
+\end{tabular*}
+\end{table}
+\begin{center}
+\rule[2ex]{\textwidth}{1pt}\\
+{\Large{\titulo}}
+\end{center}
+\rule[2ex]{\textwidth}{1pt}\\
+\begin{questions}[label=\protect\circled{\bfseries\arabic*}]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Questões                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%=========================================================
+
+\textbf{Assuntos:} Ácidos, Bases, Sais e Óxidos
+
+\question Os ácidos $HClO_{4}$, $H_2MnO_4$, $H_3PO_3$, $H_4Sb_2O_7$,
+quanto ao número de hidrogênios ionizáveis, podem ser
+classificados em:
+
+\begin{partes}
+
+ \parte monoácido, diácido, triácido, tetrácido.
+\parte monoácido, diácido, triácido, triácido.
+\parte monoácido, diácido, diácido, tetrácido
+\parte monoácido, monoácido, diácido, triácido.
+
+\end{partes}
+
+\question Considere os ácidos oxigenados abaixo:
+
+$$HNO_2 \quad HClO_3 \quad  H_2SO_3 \quad H_3PO_4$$
+
+Seus nomes são, respectivamente:
+
+
+\begin{partes}
+
+\parte nitroso, clórico, sulfuroso, fosfórico.
+\parte nítrico, clorídrico, sulfúrico, fosfórico.
+\parte nítrico, hipocloroso, sulfuroso, fosforoso.
+\parte nitroso, perclórico, sulfúrico, fosfórico.
+\parte nítrico, cloroso, sulfídrico, hipofosforoso.
+
+\end{partes}
+
+\question  O ácido que é classificado como oxiácido,
+diácido e é formado por átomos de três elementos químicos diferentes é:
+
+\begin{partes}
+
+\parte  $H_{2}S$
+\parte HCN
+\parte $HNO_{3}$
+\parte $H_{4}P_{2}O_{7}$
+\parte $H_{2}SO_{3}$
+
+\end{partes}
+
+\question Dê os nomes das seguintes bases:
+
+\begin{partes}
+ 
+ \parte $Mg(OH)_2$
+\parte $Sn(OH)_2$
+\parte Cs(OH)
+\parte $Pt(OH)_4$
+\parte $Hg(OH)_2$
+
+
+\end{partes}
+
+\question Urtiga é o nome genérico dado a diversas plantas da família das Urticáceas, cujas folhas são cobertas de
+pêlos finos, os quais liberam ácido fórmico ($H_2CO_2$) que,
+em contato com a pele, produz uma irritação.
+Dos produtos de uso doméstico abaixo, o que você utilizaria para diminuir essa irritação é:
+
+
+\begin{partes}
+\parte  vinagre
+\parte coalhada
+\parte sal de cozinha
+\parte leite de magnésia
+\parte óleo
+\end{partes}
+
+\question Os derivados do potássio são amplamente utilizados na fabricação de explosivos, fogos de artifício, além
+de outras aplicações. As fórmulas que correspondem ao
+nitrato de potássio, perclorato de potássio, sulfato de
+potássio e dicromato de potássio, são, respectivamente:
+
+\begin{partes}
+ 
+ \parte  $KNO_2$, $KClO_4$, $K_2SO_4$, $K_2Cr_2O_7$
+\parte $KNO_3$, $KClO_4$, $K_2SO_4$, $K_2Cr_2O_7$
+\parte $KNO_2$, $KClO_3$, $K_2SO_4$, $K_2Cr_2O_7$
+\parte $KNO_2$, $KClO_4$, $K_2SO_4$, $K_2Cr_2O_4$
+\parte $KNO_3$,, $KClO_3$, $K_2SO_4$, $K_2Cr_2O_7$
+ 
+\end{partes}
+
+\question  A água do mar pode ser fonte de sais usados na
+fabricação de fermento em pó, de água sanitária e de
+soro fisiológico. Os principais constituintes ativos desses
+materiais são, respectivamente:
+
+\begin{partes}
+ 
+\parte $Na_2CO_3$, HCl e NaCl
+\parte $NaHCO_3$, $Cl_2$ e $CaCl_2$
+\parte $NaHCO_3$, NaOCl e NaCl
+\parte $Na_2CO_3$, NaCl e KCl
+\parte NaOCl, $NaHCO_3$ e NaCl
+ 
+\end{partes}
+
+\question O ferro é um dos elementos mais abundantes na crosta terrestre. Em Carajás, o principal minério de ferro é a hematita, substância constituída, principalmente, por óxido férrico (ou óxido de ferro III), cuja
+fórmula é 
+
+\begin{partes}
+ \parte $FeO$
+\parte $Fe_{3}O$
+\parte $FeO_{3}$
+\parte $Fe_{2}O_{3}$
+\parte $Fe_{3}O_{2}$
+\end{partes}
+
+\question Sabe-se que a chuva ácida é formada pela dissolução, na água da chuva, de óxidos ácidos presentes
+na atmosfera.
+Entre os pares de óxidos relacionados, qual é constituído
+apenas por óxidos que provocam a chuva ácida?
+
+\begin{partes}
+
+\parte $Na_{2}O$ e $NO_2$
+\parte $CO_2$ e $SO_3$
+\parte CO e NO
+\parte $CO_2$ e MgO
+\parte CO e $N_{2}O$
+
+\end{partes}
+
+
+\question No século XIX, o cientista Svante Arrhenius definiu ácidos como sendo as espécies químicas
+que, ao se ionizarem em solução aquosa, liberam como cátion apenas o íon $H^+$. Considere as
+seguintes substâncias, que apresentam hidrogênio em sua composição: $C_{2}H_6$, $H_{2}SO_{4}$, NaOH, $NH_{4}Cl$.
+Dentre elas, aquela classificada como ácido, segundo a definição de Arrhenius, é:
+
+\begin{partes}
+ \parte $C_{2}H_6$
+
+\parte $H_{2}SO_{4}$
+
+\parte NaOH
+
+\parte  $NH_{4}Cl$
+
+\end{partes}
+
+\question O oxigênio possui uma alta reatividade, podendo formar compostos com uma grande
+variedade de elementos da Tabela Periódica. Dependendo do elemento, o óxido poderá ter
+diferentes propriedades químicas.
+
+Sobre os óxidos e as suas propriedades químicas, assinale a alternativa correta.
+
+\begin{partes}
+
+
+\parte O MgO reage com ácido e é considerado óxido ácido.
+
+\parte Os óxidos dos ametais apresentam caráter iônico.
+
+\parte A reação de um óxido básico com a água irá diminuir o pH da solução.
+
+\parte O nitrogênio forma muitos óxidos. A partir do NO, pode ocorrer processo de redução,
+formando $NO_{2}$.
+
+\parte O $Al_{2}O_{3}$ tem caráter anfótero porque reage com ácido ou base.
+
+
+\end{partes}
+
+
+\question \citep{ENEM(2017)}
+Realizou-se um experimento, utilizando-se o esquema mostrado na figura, para medir a
+condutibilidade elétrica de soluções. Foram montados cinco kits contendo, cada um, três soluções
+de mesma concentração, sendo uma de ácido, uma de base e outra de sal. Os kits analisados pelos
+alunos foram:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{1.png}
+\end{figure}
+
+Qual dos kits analisados provocou o acendimento da lâmpada com um brilho mais intenso nas três soluções?
+
+\begin{partes}
+
+\parte Kit 1.
+
+\parte Kit 2.
+
+\parte Kit 3.
+
+ \parte Kit 4.
+
+\parte Kit 5.
+
+\end{partes}
+
+\question \citep{ENEM(2015)}
+Os calcários são materiais compostos por carbonato de cálcio, que podem atuar como
+sorventes do dióxido de enxofre (SO2), um importante poluente atmosférico. As reações envolvidas
+no processo são a ativação do calcário, por meio de calcinação, e a fixação do SO2 com a formação
+de um sal de cálcio, como ilustrado pelas equações químicas simplificadas.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{2.png}
+\end{figure}
+
+Considerando-se as reações envolvidas nesse processo de dessulfurização, a fórmula química
+do sal de cálcio corresponde a:
+
+\begin{partes}
+
+
+\parte $CaSO_3$.
+
+\parte $CaSO_4$.
+
+\parte $CaS_{2}O_{8}$.
+
+\parte $CaSO_{2}$.
+
+\parte $CaS_{2}O_{7}$
+
+\end{partes}
+
+
+\question \citep{ENEM(2015)}
+Em um experimento, colocou-se água até a metade da capacidade de um frasco de vidro e,
+em seguida, adicionaram-se três gotas de solução alcoólica de fenolftaleína. Adicionou-se
+bicarbonato de sódio comercial, em pequenas quantidades, até que a solução se tornasse rosa.
+Dentro do frasco, acendeu-se um palito de fósforo, o qual foi apagado assim que a cabeça terminou de queimar. Imediatamente, o frasco foi tampado. Em seguida, agitou-se o frasco tampado e
+observou-se o desaparecimento da cor rosa.
+
+A explicação para o desaparecimento da cor rosa é que, com a combustão do palito de
+fósforo, ocorreu o(a):
+
+\begin{partes}
+
+\parte formação de óxidos de caráter ácido.
+
+\parte evaporação do indicador fenolftaleína.
+
+\parte vaporização de parte da água do frasco.
+
+\parte vaporização dos gases de caráter alcalino.
+
+\parte aumento do pH da solução no interior do frasco
+
+\end{partes}
+
+
+\question \citep{ENEM(2009)}
+O processo de industrialização tem gerado sérios problemas de ordem ambiental, econômica
+e social, entre os quais se pode citar a chuva ácida. Os ácidos usualmente presentes em maiores
+proporções na água da chuva são o H2CO3, formado pela reação do $CO_2$ atmosférico com a água, o
+$HNO_3$, o $HNO_2$, o $H_{2}SO_{4}$ e o $H_{2}SO_{3}$. Esses quatro últimos são formados principalmente a partir da
+reação da água com os óxidos de nitrogênio e de enxofre gerados pela queima de combustíveis
+fósseis.
+A formação de chuva mais ou menos ácida depende não só da concentração do ácido
+formado, como também do tipo de ácido. Essa pode ser uma informação útil na elaboração de
+estratégias para minimizar esse problema ambiental. Se consideradas concentrações idênticas, quais
+dos ácidos citados no texto conferem maior acidez às águas das chuvas?
+
+
+\begin{partes}
+
+\parte $HNO_3$ e $HNO_2$.
+
+\parte $H_{2}SO_{4}$ e $H_{2}SO_{3}$.
+
+\parte $H_{2}SO_{3}$ e $HNO_2$.
+
+\parte $H_{2}SO_{4}$ e $HNO_3$.
+
+\parte $H_{2}CO_{3}$ e $H_{2}SO_{3}$.
+
+\end{partes}
+\question \citep{ENEM(2010)} 
+As misturas efervescentes, em pó ou em comprimidos, são comuns para a administração de
+vitamina C ou de medicamentos para azia. Essa forma farmacêutica sólida foi desenvolvida para
+facilitar o transporte, aumentar a estabilidade de substâncias e, quando em solução, acelerar a
+absorção do fármaco pelo organismo.
+
+A matérias-primas que atuam na efervescência são, em geral, o ácido tartárico ou o ácido
+cítrico que reagem com um sal de caráter básico, como o bicarbonato de sódio ($NaHCO_3$), quando
+em contato com a água. A partir do contato da mistura efervescente com a água, ocorre uma série
+de reações químicas simultâneas: liberação de íons, formação de ácido e liberação do gás carbônico
+– gerando a efervescência.
+
+As equações a seguir representam as etapas da reação da mistura efervescente na água, em
+que foram omitidos os estados de agregação dos reagentes, e $H_{3}A$ representa o ácido cítrico.
+
+I. $$NaHCO_{3}  \longrightarrow Na^{+} + HCO^{-3}$$
+
+II. $$H_{2}CO_{3}  \longrightarrow H_{2}O + CO_{2}$$
+
+III. $$HCO^{-3} + H^{+} \longrightarrow H_{2}CO_{3}$$
+
+IV. $$H_{3}A \longrightarrow 3H^{+} + A^{-}$$
+
+A ionização, a dissociação iônica, a formação do ácido e a liberação do gás ocorrem,
+respectivamente, nas seguintes etapas:
+
+\begin{partes}
+
+\parte IV, I, II e III
+
+\parte I, IV, III e II
+
+\parte IV, III, I e II
+
+\parte I, IV, II e III
+
+\parte IV, I, III e II
+
+\end{partes}
+
+
+
+\question\citep{ENEM(2015)}
+Em um experimento, colocou-se água até a metade da capacidade de um frasco de vidro e,
+em seguida, adicionaram-se três gotas de solução alcoólica de fenolftaleína. Adicionou-se
+bicarbonato de sódio comercial, em pequenas quantidades, até que a solução se tornasse rosa.
+Dentro do frasco, acendeu-se um palito de fósforo, o qual foi apagado assim que a cabeça terminou de queimar. Imediatamente, o frasco foi tampado. Em seguida, agitou-se o frasco tampado e
+observou-se o desaparecimento da cor rosa.
+
+A explicação para o desaparecimento da cor rosa é que, com a combustão do palito de
+fósforo, ocorreu o(a):
+
+\begin{partes}
+
+\parte formação de óxidos de caráter ácido.
+
+\parte evaporação do indicador fenolftaleína.
+
+\parte vaporização de parte da água do frasco.
+
+\parte vaporização dos gases de caráter alcalino.
+
+\parte aumento do pH da solução no interior do frasco
+
+\end{partes}
+
+
+
+
+%================================================================
+\end{questions}
+%===========================================================
+%          BIBLIOGRAFIA
+%===========================================================
+\begin{thebibliography}{99}
+\thispagestyle{empty}%myheadings
+%===========================================================
+%==============Livro
+\bibitem[ENEM(2013)]{ENEM(2013)}
+[1] \textbf{ENEM 2013}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2009)]{ENEM(2009)}
+[2] \textbf{ENEM 2009}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2011)]{ENEM(2011)}
+[3] \textbf{ENEM 2011}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2010)]{ENEM(2010)}
+[4] \textbf{ENEM 2010}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2025)]{ENEM(2025)}
+[5] \textbf{ENEM 2025}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2024)]{ENEM(2024)}
+[6] \textbf{ENEM 2024}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2022)]{ENEM(2022)}
+[7] \textbf{ENEM 2022}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2020)]{ENEM(2020)}
+[8] \textbf{ENEM 2020}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2017)]{ENEM(2017)}
+[9] \textbf{ENEM 2017}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2012)]{ENEM(2012)}
+[10] \textbf{ENEM 2012}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2013)]{ENEM(2013)}
+[1] \textbf{ENEM 2013}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2009)]{ENEM(2009)}
+[2] \textbf{ENEM 2009}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2011)]{ENEM(2011)}
+[3] \textbf{ENEM 2011}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2010)]{ENEM(2010)}
+[4] \textbf{ENEM 2010}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}. 
+
+\bibitem[ENEM(2025)]{ENEM(2025)}
+[5] \textbf{ENEM 2025}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2024)]{ENEM(2024)}
+[6] \textbf{ENEM 2024}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2022)]{ENEM(2022)}
+[7] \textbf{ENEM 2022}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2020)]{ENEM(2020)}
+[8] \textbf{ENEM 2020}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2017)]{ENEM(2017)}
+[9] \textbf{ENEM 2017}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2012)]{ENEM(2012)}
+[10] \textbf{ENEM 2012}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2014)]{ENEM(2014)}
+[11] \textbf{ENEM 2014}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+\bibitem[ENEM(2015)]{ENEM(2015)}
+[11] \textbf{ENEM 2015}
+(Exame Nacional do Ensino Médio).
+\emph{INEP-Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.{Ministério da Educação}.
+
+%===========================================================
+\end{thebibliography}
+\end{document}
